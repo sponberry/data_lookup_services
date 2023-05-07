@@ -1,0 +1,22 @@
+{
+  "name": "data-lookup-backend",
+  "version": "1.0.0",
+  "description": "Services for customer and product data lookups.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sponberry/data_lookup_services.git"
+  },
+  "author": "Abigail Nottingham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sponberry/data_lookup_services/issues"
+  },
+  "homepage": "https://github.com/sponberry/data_lookup_services#readme",
+  "dependencies": {
+    "typescript": "^5.0.4"
+  }
+}
