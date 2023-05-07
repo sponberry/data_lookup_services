@@ -1,0 +1,21 @@
+type Person {
+  email: String!
+  forename: String!
+  surname: String!
+  contact_number: Float!
+  postcode: String!
+}
+
+type Product {
+  vin: String!
+  colour: String!
+  make: String!
+  model: String!
+  price: Float!
+}
+
+type Query {
+  personCount: Int!
+  allPersons: [Person!]!
+  findPerson(name: String!): Person
+}
