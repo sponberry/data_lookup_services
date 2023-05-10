@@ -1,12 +1,5 @@
 import { CsvAdaptor, DbAdaptor, DataHandler } from "../Services/services";
 import { Customer, Product } from "../types";
-// export class Product extends ObjectAbstract {
-//     let type = "product";
-// };
-
-// export class Customer extends ObjectAbstract {
-//     let type = "customer"
-// };
 
 export class ObjectHandler {
     adaptor: DataHandler;
