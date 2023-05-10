@@ -1,4 +1,4 @@
-type Person {
+type Customer {
   email: String!
   forename: String!
   surname: String!
@@ -15,7 +15,8 @@ type Product {
 }
 
 type Query {
-  personCount: Int!
-  allPersons: [Person!]!
-  findPerson(name: String!): Person
+  customerCount: Int!
+  allCustomers: [Customer!]!
+  allProducts: [Product!]!
+  findCustomer(email: String!): Customer
 }
