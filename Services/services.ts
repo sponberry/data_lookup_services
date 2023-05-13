@@ -45,8 +45,9 @@ export class CsvAdaptor extends DataHandler {
         return dataArray;
     }
 
-    findEntry() {
+    findEntry(_lookup: string) {
         // could be written if needed in the future
+        // lookup is email for customer or vin for product
     }
  
     write() {
@@ -63,7 +64,12 @@ export class DbAdaptor extends DataHandler {
 
     }
 
-    write() {
+    findEntry(_lookup: string) {
+        // could be written if needed in the future
+        // lookup is email for customer or vin for product
+    }
+
+    write(_newEntry: Customer | Product) {
         // could be written if needed in the future
     }
 }

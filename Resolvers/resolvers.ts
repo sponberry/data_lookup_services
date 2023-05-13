@@ -1,14 +1,27 @@
 import { CsvAdaptor, DbAdaptor, DataHandler } from "../Services/services";
 import { Customer, Product } from "../types";
 
-export class ObjectHandler {
+export const resolvers = {
+    Query: {
+      allCustomers: () => {
+        const customerResolver = new ObjectHandler('customer');
+        return customerResolver.fetchAllEntries();
+      },
+      allProducts: () => {
+        const productResolver = new ObjectHandler('product');
+        return productResolver.fetchAllEntries();
+      }
+    }
+  }
+
+class ObjectHandler {
     adaptor: DataHandler;
     constructor(type: string) {
         this.adaptor = this.assignDataHandler(type);
     }
 
     assignDataHandler(type: string) {
-        switch(process.env.DATA_SOURCE) {
+        switch(process.env.DATA_SRC) {
             case "csv": 
                 return new CsvAdaptor(type);
             case "db":
