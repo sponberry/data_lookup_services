@@ -2,6 +2,7 @@ import { createReadStream } from 'fs';
 import { parse } from 'csv-parse';
 import { DataObject, DataObjectArray, Customer, Product } from '../types';
 import { parseArrayData, toCustomer, toProduct } from '../utils';
+// const ProductEntry = require('./Models/product');
 
 export class DataHandler {
     type: string;
@@ -21,13 +22,10 @@ export class DataHandler {
             createReadStream(filename)
                 .pipe(parse({ delimiter: ",", from_line: 2 }))
                 .on("data", function (row) {
-                    console.log(row);
                     dataArray.push(row);
                 })
                 .on('end', () => {
-                    resolve(dataArray);
-                    // readingStream.close()
-                    
+                    resolve(dataArray);                    
                 })
                 .on("error", (error) => {
                     reject({message: error.message})
@@ -88,7 +86,6 @@ export class CsvAdaptor extends DataHandler {
 
     findEntry(_lookup: string) {
         // could be written if needed in the future
-        // lookup is email for customer or vin for product
     }
  
     write() {
@@ -102,12 +99,18 @@ export class DbAdaptor extends DataHandler {
     }
 
     read() {
-
+        switch (this.type) {
+            case "customer":
+                 // CustomerEntry.find({});
+            case "product":
+                 // return ProductEntry.find({});
+            default:
+                 // return ProductEntry.find({});
+        }
     }
 
     findEntry(_lookup: string) {
         // could be written if needed in the future
-        // lookup is email for customer or vin for product
     }
 
     write(_newEntry: DataObject) {
