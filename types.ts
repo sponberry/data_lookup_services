@@ -1,8 +1,12 @@
+export type DataObject = Customer | Product;
+export type DataObjectArray = Customer[] | Product[];
+export type Lookup = Customer["email"] | Product["vin"];
+ 
 export interface Customer {
     email: string;
     forename: string;
     surname: string;
-    contact_number: number;
+    contact_number: string;
     postcode: string;
 }
 

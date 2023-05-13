@@ -1,5 +1,5 @@
 import { CsvAdaptor, DbAdaptor, DataHandler } from "../Services/services";
-import { Customer, Product } from "../types";
+import {DataObject, Lookup } from "../types";
 
 export const resolvers = {
     Query: {
@@ -16,8 +16,10 @@ export const resolvers = {
 
 class ObjectHandler {
     adaptor: DataHandler;
+    type: string;
     constructor(type: string) {
         this.adaptor = this.assignDataHandler(type);
+        this.type = type;
     }
 
     assignDataHandler(type: string) {
@@ -32,14 +34,14 @@ class ObjectHandler {
     }
 
     async fetchAllEntries() {
-        await this.adaptor.read();
+        return await this.adaptor.read();
     }
 
-    async fetchSingleEntry(lookup: Customer["email"] | Product["vin"] ) {
+    async fetchSingleEntry(lookup: Lookup ) {
         await this.adaptor.findEntry(lookup);
     }
 
-    async createNewEntry(newEntry: Customer | Product) {
+    async createNewEntry(newEntry: DataObject) {
         await this.adaptor.write(newEntry);
     }
 };

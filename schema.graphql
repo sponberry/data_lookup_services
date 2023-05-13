@@ -2,7 +2,7 @@ type Customer {
   email: String!
   forename: String!
   surname: String!
-  contact_number: Float!
+  contact_number: String!
   postcode: String!
 }
 
