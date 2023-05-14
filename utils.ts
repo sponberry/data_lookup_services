@@ -29,20 +29,20 @@ export const parseArrayData = (data: unknown): string[][] => {
 // Type conversions for all objects below. Follow format for new data objects to be added.
 export const toCustomer = (fieldsArray: string[]): Customer => {
     return {
-        email: fieldsArray[0],
-        forename: fieldsArray[1],
-        surname: fieldsArray[2],
-        contact_number: fieldsArray[3],
-        postcode: fieldsArray[4]
+        email: fieldsArray[0].trim(),
+        forename: fieldsArray[1].trim(),
+        surname: fieldsArray[2].trim(),
+        contact_number: fieldsArray[3].trim(),
+        postcode: fieldsArray[4].trim()
     };
   };
 
 export const toProduct = (fieldsArray: string[]): Product => {
     return {
-        vin: fieldsArray[0],
-        colour: fieldsArray[1],
-        make: fieldsArray[2],
-        model: fieldsArray[3],
+        vin: fieldsArray[0].trim(),
+        colour: fieldsArray[1].trim(),
+        make: fieldsArray[2].trim(),
+        model: fieldsArray[3].trim(),
         price: convertTextToNumber(fieldsArray[4])
     }
 };

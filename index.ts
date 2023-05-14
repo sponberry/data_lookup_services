@@ -3,7 +3,6 @@ const { startStandaloneServer } = require('@apollo/server/standalone');
 import { resolvers } from './Resolvers/resolvers';
 import { readFileSync } from 'fs';
 const typeDefs = readFileSync('./schema.graphql', { encoding: 'utf-8' });
-
 // const mongoose = require("mongoose")
 
 // const JWT_SECRET = process.env.JWT_SECRET
@@ -20,10 +19,10 @@ const typeDefs = readFileSync('./schema.graphql', { encoding: 'utf-8' });
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-})
+});
 
 startStandaloneServer(server, {
   listen: { port: 4000 },
 }).then(() => {
   console.log(`Server ready`)
-})
+});
